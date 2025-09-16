@@ -1,0 +1,259 @@
+:root{
+    --primary: #932F6D;
+    --secondary: #420039;
+    --alt: #b388eb;
+    --background: #F6F2FF;
+    --text: #0E0004;
+    --card: #DCCCFF;
+    
+    --color-white: #F6F2FF;
+    --color-black: #0E0004;
+
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+    --font-serif: "Merriweather", "Lora";
+    --default-font-family: "Raleway", sans-serif;
+}
+
+
+.dark{
+    --background: var(--color-black);
+    --text: var(--color-white);
+    --card: var(--secondary);
+}
+
+/** From BeiResume **/
+@keyframes float{
+    0%,100%{
+        transform:translateY(0)}50%{transform:translateY(-8px)
+    }
+}
+
+.floating{
+    animation:float 6s ease-in-out infinite
+}
+
+.resume-section, .smooth-transition{
+    transition:all 0.3s ease
+}
+
+.resume-section:hover{
+    transform:translateY(-5px)
+
+}
+
+.skill-bar{
+    height:8px;
+    border-radius:4px
+}
+
+.progress{
+    height:100%;
+    border-radius:4px;
+    transition:width 1s ease-in-out
+}
+
+
+/* From Raccooner */
+body {
+    background: var(--background) !important;
+    color: var(--text);
+    font-family: var(--default-font-family) !important;
+}
+
+svg {
+    fill: var(--secondary);
+}
+
+.entry-details p{
+    margin-bottom: 2em !important;
+}
+
+.svg-icon {
+    background-color: var(--secondary);
+
+}
+
+.font-default {
+    font-family: var(--default-font-family) !important;
+}
+
+.dropdown-content {
+    transition: height 0.8s ease, opacity 0.8s ease, max-height 1s ease;
+}
+
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.tag-box {
+    font-family: var(--font-mono);
+    text-align: center;
+    font-style: bold;
+    border-radius: 0.4rem;
+    background: var(--primary);
+    margin: auto;
+    padding: 0.28rem;
+    color: var(--color-white);
+    text-shadow:  1px 1px 2px black;
+}
+
+.tb-available {
+    background: #04a777;
+    
+}
+
+.tb-current, .bt-more {
+    background: #38489E;
+}
+
+.tb-done, .tb-released, .tb-success, .tb-finished, .tb-active, .tb-online {
+    background: #04a777;
+}
+
+.tb-wip, .tb-in-progress {
+    background: #ee6907;
+}
+
+.tb-aborted, .tag-tb-canceled, .tb-dead {
+    background: #ce0505;
+}
+
+.tb-postponed, .tb-hiatus, .tb-inactive, .tb-offline {
+    background: #676873;
+}
+
+.panel-item {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.8rem !important;
+    margin-bottom: 1rem !important;
+    margin-right: 1rem;
+    width: 92%;
+}
+
+@keyframes fadeInDrop {
+  0% {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    height: auto; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDrop {
+  0% {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.toggled-content {
+    display: none;
+}
+
+.toggled-content.fade-in{
+    display: flex;
+    animation: fadeInDrop 0.4s ease forwards;
+}
+
+.toggled-content.fade-out{
+    display: flex; /* Keeping it in flow while fading out */
+    animation: fadeOutDrop 0.2s ease forwards;
+}
+
+
+
+
+a {
+    text-decoration: underline !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+    opacity: 0.6;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold !important;
+}
+
+
+/** Animations **/
+div.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.tag-box.shine-effect {
+    position: relative; 
+    overflow: hidden;   
+}
+
+.misc.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    animation: shine 3s ease-in-out infinite;
+    pointer-events: none; 
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+        opacity: 0;
+    }
+    5% {
+        left: -75%;
+        opacity: 1;
+    }
+    50% {
+        left: 125%;
+        opacity: 1;
+    }
+    55% {
+        left: 125%;
+        opacity: 0;
+    }
+    100% {
+        left: 125%;
+        opacity: 0;
+    }
+}
+
+@keyframes shaking {
+     0% { transform: translateX(0) }
+    25% { transform: translateX(2px) }
+    50% { transform: translateX(-2px) }
+    75% { transform: translateX(2px) }
+    100% { transform: translateX(0) }
+}
